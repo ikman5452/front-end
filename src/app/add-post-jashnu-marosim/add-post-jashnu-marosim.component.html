@@ -1,0 +1,19 @@
+<body class="container">
+<form class="form-signin">
+  <h1 class="h3 mb-3 text-center font-weight-normal">Воридкунии нашри нав</h1>
+  <label>Сарлавҳа, маълумоти умумӣ, маълумоти таърихӣ:</label>
+
+  <input [(ngModel)]="title"  type="title" name="title" class="form-control mb-3" placeholder="Сарлавҳа">
+
+  <label class="mt-3">Маълумоти умумӣ:</label>
+  <quill-editor [(ngModel)]="photoMalumot"  name="photoMalumot" placeholder="Расми асосиро интихоб кунед: "></quill-editor>
+  <quill-editor [(ngModel)]="textMalumot"  name="textMalumot" placeholder="Маълумоти умумиро ворид кунед: "></quill-editor>
+
+  <label class="mt-3">Маълумоти таърихӣ:</label>
+  <quill-editor [(ngModel)]="photoTarikh"  name="photoTarikh" placeholder="Расми таърихиро интихоб кунед: "></quill-editor>
+  <quill-editor [(ngModel)]="textTarikh"  name="textTarikh" placeholder="Маълумоти таърихиро ворид кунед: "></quill-editor>
+
+
+  <button class="btn btn-lg btn-primary btn-block mb-5" (click)="createPost()">Нашр</button>
+</form>
+</body>
