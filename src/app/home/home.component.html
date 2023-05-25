@@ -1,0 +1,49 @@
+<div class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex justify-content-between">
+    <a class="p-2 link-secondary" (click)="setCategory('Meros')">Меросӣ адабӣ</a>
+    <a class="p-2 link-secondary" (click)="setCategory('Jashnho')">Ҷашну маросимҳо</a>
+    <a class="p-2 link-secondary" (click)="setCategory('Hunarho')">Ҳунарҳои миллӣ</a>
+    <a class="p-2 link-secondary" (click)="setCategory('Libosho')">Либосҳои миллӣ</a>
+    <a class="p-2 link-secondary" (click)="setCategory('Asbobho')">Асбобҳои мусиқӣ</a>
+    <a class="p-2 link-secondary" (click)="setCategory('Hurokho')">Таомҳои суннатӣ</a>
+  </nav>
+</div>
+
+<div class="row d-flex">
+  <div class="figure position-relative">
+    <img class="photo img-fluid" src="https://pibig.info/uploads/posts/2021-06/1623548137_46-pibig_info-p-samaya-krasivaya-priroda-v-mire-priroda-kr-47.jpg" alt="">
+    <div class="figure-caption position-absolute h-100 w-100">
+      <div class="col-md-6 p-5">
+        <h1 class="display-4 font-italic text-white">Хуш омадед!</h1>
+        <p class="lead my-3 text-white">Дар ин ҷо метавонед маълумот оиди "Мероси фарҳанги тоҷик" - касбу ҳунар, ҷашну маросимҳо, хӯрокҳои миллӣ ва ғайраҳо пайдо кунед.</p>
+        <p class="lead mb-0"><a [routerLink]="['/reg']" class="text-white font-weight-bold">Бақайдгирӣ...</a></p>
+      </div>
+    </div>
+</div>
+
+  <div *ngFor="let post of posts | sorting: category" class="col-md-4" [routerLink]="['post', post._id]">
+    <div class="p-0 mb-4 box-shadow">
+      <quill-view  [content]="post.photoMalumot"></quill-view>
+      <div class="card-body mb-3">
+        <div class="m-0 p-0 d-flex justify-content-between align-items-center">
+          <strong *ngIf="post.category == 'Hunarho'" class="mb-2 text-primary">Ҳунарҳои миллӣ</strong>
+          <strong *ngIf="post.category == 'Jashnho'" class="mb-2 text-primary">Ҷашну маросимҳо</strong>
+          <strong *ngIf="post.category == 'Libosho'" class="mb-2 text-primary">Либосҳои миллӣ</strong>
+          <strong *ngIf="post.category == 'Asbobho'" class="mb-2 text-primary">Асбобҳои мусиқӣ</strong>
+          <strong *ngIf="post.category == 'Hurokho'" class="mb-2 text-primary">Таомҳои суннатӣ</strong>
+          <strong *ngIf="post.category == 'Meros'" class="mb-2 text-primary">Мероси адабӣ</strong>
+          <small class="text-muted">{{post.date | date: "d MMMM y, HH:mm"}}</small>
+        </div>
+        <h4 class="mb-3">
+          <a class="text-dark" [routerLink]="['post', post._id]">{{post.title}}</a>
+        </h4>
+        <p>Муфассалтар...</p>
+<!--        <iframe width="425" height="350" src="{{post.}}" style="border: 1px solid black"></iframe>-->
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!--[content]="post.text"-->

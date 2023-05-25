@@ -1,0 +1,61 @@
+<div *ngIf="post$ | async as post" class="container">
+  <body class="container">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 text-center font-weight-normal">Ивазкунии нашр</h1>
+
+
+    <label style="color: red">Сарлавҳаи аввала:</label>
+    <input [(ngModel)]="post.title" type="text" name="postTitle" class="form-control mb-3" placeholder="Сарлавҳаи аввала">
+    <label style="color: forestgreen">Сарлавҳаи нави тағйиршуда:</label>
+    <input [(ngModel)]="title" type="text" name="title" class="form-control mb-3" placeholder="Сарлавҳаи нав">
+
+
+
+    <label style="color: red">Расми асосии аввала:</label>
+    <quill-editor [(ngModel)]="post.photoMalumot" name="postPhotoMalumot"></quill-editor>
+    <label style="color: forestgreen">Расми асосии нав:</label>
+    <quill-editor [(ngModel)]="photoMalumot" name="photoMalumot" placeholder="Расми асосии нав"></quill-editor>
+
+
+    <label style="color: red" class="mt-3">Маълумоти умуми аввала:</label>
+    <quill-editor [(ngModel)]="post.textMalumot"  name="postTextMalumot" placeholder="матн"></quill-editor>
+    <label style="color: forestgreen" class="mt-3">Маълумоти умуми нав:</label>
+    <quill-editor [(ngModel)]="textMalumot"  name="textMalumot" placeholder="Маълумоти умумии нав"></quill-editor>
+
+
+    <label style="color: red">Расми таърихии аввала:</label>
+    <quill-editor [(ngModel)]="post.photoTarikh" name="postPhotoTarikh"></quill-editor>
+    <label style="color: forestgreen">Расми таърихии нав:</label>
+    <quill-editor [(ngModel)]="photoTarikh" name="photoTarikh" placeholder="Расми таърихии нав"></quill-editor>
+
+    <label style="color: red" class="mt-3">Маълумоти таърихии аввала:</label>
+    <quill-editor [(ngModel)]="post.textTarikh"  name="postTextTarikh"></quill-editor>
+    <label style="color: forestgreen" class="mt-3">Маълумоти таърихии нав:</label>
+    <quill-editor [(ngModel)]="textTarikh"  name="textTarikh" placeholder="Маълумоти таърихии нав"></quill-editor>
+
+    <label style="color: red">Расми аввала оиди тамос:</label>
+    <quill-editor [(ngModel)]="post.photoTamos" name="postPhotoTamos"></quill-editor>
+    <label style="color: forestgreen">Расми нав оиди тамос:</label>
+    <quill-editor [(ngModel)]="photoTamos" name="photoTamos" placeholder="Расми нав оиди тамос"></quill-editor>
+
+    <label style="color: red">Маълумоти аввала оиди тамос:</label>
+    <quill-editor [(ngModel)]="post.textTamos" name="postTextTamos"></quill-editor>
+    <label style="color: forestgreen">Расми нав оиди тамос:</label>
+    <quill-editor [(ngModel)]="textTamos" name="textTamos" placeholder="Маълумоти нав оиди тамос"></quill-editor>
+
+    <label style="color: red">Ҳаволаи аввала ба локатсия:</label>
+    <input [(ngModel)]="post.photoLocation"  type="text" name="postPhotoLocation" class="form-control mb-3" >
+    <label style="color: forestgreen">Ҳаволаи нав ба локатсия:</label>
+    <input [(ngModel)]="photoLocation"  type="text" name="photoLocation" class="form-control mb-3" placeholder="Ҳавола ба локатсияи нав">
+
+
+    <label style="color: red">Маълумоти аввала оиди мавқеъ:</label>
+    <quill-editor [(ngModel)]="post.textLocation" name="postTextLocation"></quill-editor>
+    <label style="color: forestgreen">Маълумоти нав оиди мавқеъ:</label>
+    <quill-editor [(ngModel)]="textLocation" name="textLocation" placeholder="Маълумоти нав оиди мавқеъ"></quill-editor>
+
+
+    <button class="btn btn-lg btn-primary btn-block mb-5" (click)="updatePost(post._id)">Тағйир додан</button>
+  </form>
+  </body>
+</div>

@@ -1,0 +1,30 @@
+<body class="container">
+<form class="form-signin">
+  <h1 class="h3 mb-3 text-center font-weight-normal">Воридкунии нашри нав</h1>
+  <label> Сарлавҳа, маълумоти умумӣ, маълумоти таърихӣ ва ғайра:</label>
+
+  <input [(ngModel)]="title"  type="title" name="title" class="form-control mb-3" placeholder="Сарлавҳа">
+
+  <label class="mt-3">Маълумоти умумӣ:</label>
+  <quill-editor [(ngModel)]="photoMalumot"  name="photoMalumot" placeholder="Расми асосиро интихоб кунед: "></quill-editor>
+  <quill-editor [(ngModel)]="textMalumot"  name="textMalumot" placeholder="Маълумоти умумиро ворид кунед: "></quill-editor>
+
+  <label class="mt-3">Маълумоти таърихӣ:</label>
+  <quill-editor [(ngModel)]="photoTarikh"  name="photoTarikh" placeholder="Расми таърихиро интихоб кунед: "></quill-editor>
+  <quill-editor [(ngModel)]="textTarikh"  name="textTarikh" placeholder="Маълумоти таърихиро ворид кунед: "></quill-editor>
+
+  <label class="mt-3">Маълумот оиди таҷҳизот:</label>
+  <quill-editor [(ngModel)]="photoTajhizot"  name="photoTajhizot" placeholder="Расми таҷҳизотро интихоб кунед (агар категория Мероси адабӣ бошад, расм оиди маҳсули адабии шоир интихоб кунед):"></quill-editor>
+  <quill-editor [(ngModel)]="textTajhizot"  name="textTajhizot" placeholder="Маълумот оиди таҷҳизот ворид кунед (агар категория Мероси адабӣ бошад, оиди маҳсули адабии шоир маълумот ворид кунед): "></quill-editor>
+
+  <label class="mt-3">Маълумот оиди тамос:</label>
+  <quill-editor [(ngModel)]="photoTamos"  name="photoTamos" placeholder="Расм оиди тамос интихоб кунед: "></quill-editor>
+  <quill-editor [(ngModel)]="textTamos"  name="textTamos" placeholder="Маълумот оиди тамос ворид кунед: "></quill-editor>
+
+  <label class="mt-3">Маълумот оиди локатсия:</label>
+  <input [(ngModel)]="photoLocation"  type="text" name="photoLocation" class="form-control mb-3" placeholder="Ҳавола ба локатсия">
+  <quill-editor [(ngModel)]="textLocation"  name="textLocation" placeholder="Оиди локатсия маълумот гузоред: "></quill-editor>
+
+  <button class="btn btn-lg btn-primary btn-block mb-5" (click)="createPost()">Нашр</button>
+</form>
+</body>

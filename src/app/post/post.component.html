@@ -1,0 +1,97 @@
+<div *ngIf="post$ | async as post" class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex justify-content-between">
+    <a *ngIf="post.category == 'Hunarho' || post.category == 'Libosho' || post.category == 'Jashnho' || post.category == 'Hurokho' || post.category == 'Asbobho'" class="p-2 link-secondary" [routerLink]="['malumot']">Маълумоти умумӣ</a>
+    <a *ngIf="post.category == 'Hunarho' || post.category == 'Libosho' || post.category == 'Jashnho' || post.category == 'Hurokho' || post.category == 'Asbobho'" class="p-2 link-secondary" [routerLink]="['tarikh']">Таърих</a>
+    <a *ngIf="post.category == 'Hunarho'" class="p-2 link-secondary" [routerLink]="['tajhizot']">Таҷҳизот</a>
+    <a *ngIf="post.category == 'Hunarho' || post.category == 'Asbobho' || post.category == 'Libosho' || post.category == 'Asbobho'" class="p-2 link-secondary" [routerLink]="['tamos']">Тамос</a>
+    <a *ngIf="post.category == 'Hunarho' || post.category == 'Asbobho'" class="p-2 link-secondary" [routerLink]="['mavqe']">Мавқеи ҷойгиршавӣ</a>
+    <a *ngIf="post.category == 'Meros'" class="p-2 link-secondary" [routerLink]="['hayotufaoliyat']">Ҳаёт ва фаъолият</a>
+    <a *ngIf="post.category == 'Meros'" class="p-2 link-secondary" [routerLink]="['merosiadabi']">Мероси адабӣ</a>
+  </nav>
+</div>
+<div *ngIf="post$ | async as post" class="container">
+  <div class="m-0 d-flex justify-content-between align-items-center">
+    <h1>
+      {{ post.title }}
+    </h1>
+
+    <button *ngIf= "login == post.author && post.category == 'Hunarho'" class="btn btn-sm btn-warning" [routerLink]="['edit']">Тағйир додан</button>
+    <button *ngIf= "login == post.author && post.category == 'Meros'" class="btn btn-sm btn-warning" [routerLink]="['editMeros']">Тағйир додан</button>
+    <button *ngIf= "login == post.author && post.category == 'Jashnho'" class="btn btn-sm btn-warning" [routerLink]="['editJashnuMarosim']">Тағйир додан</button>
+    <button *ngIf= "login == post.author && post.category == 'Libosho'" class="btn btn-sm btn-warning" [routerLink]="['editLibosho']">Тағйир додан</button>
+    <button *ngIf= "login == post.author && post.category == 'Asbobho'" class="btn btn-sm btn-warning" [routerLink]="['editAsbobhoiMusiqi']">Тағйир додан</button>
+    <button *ngIf= "login == post.author && post.category == 'Hurokho'" class="btn btn-sm btn-warning" [routerLink]="['editTaomho']">Тағйир додан</button>
+
+    <button *ngIf="login == post.author" class="btn btn-sm btn-danger" (click)="deletePost(post._id)">Нест кардан</button>
+  </div>
+  <div class="m-0 d-flex justify-content-between align-items-center">
+    <strong *ngIf="post.category == 'Hunarho'" class="mb-2 text-primary">Ҳунарҳои миллӣ</strong>
+    <strong *ngIf="post.category == 'Jashnho'" class="mb-2 text-primary">Ҷашну маросимҳо</strong>
+    <strong *ngIf="post.category == 'Libosho'" class="mb-2 text-primary">Либосҳои миллӣ</strong>
+    <strong *ngIf="post.category == 'Asbobho'" class="mb-2 text-primary">Асбобҳои мусиқӣ</strong>
+    <strong *ngIf="post.category == 'Hurokho'" class="mb-2 text-primary">Таомҳои суннатӣ</strong>
+    <strong *ngIf="post.category == 'Meros'" class="mb-2 text-primary">Мероси адабӣ</strong>
+
+    <small class="text-muted">Муаллиф: @{{ post.author}}, Сана: {{ post.date | date: "d MMMM y, HH:mm" }}</small>
+  </div>
+
+  <quill-view [content]="post.photoMalumot"></quill-view>
+
+
+  <div *ngIf="post.category == 'Hunarho'" class="mt-2 mb-3">
+    <quill-view [content]="post.textMalumot"></quill-view>
+
+    <quill-view [content]="post.photoTarikh"></quill-view>
+    <quill-view [content]="post.textTarikh"></quill-view>
+
+    <quill-view [content]="post.photoTajhizot"></quill-view>
+    <quill-view [content]="post.textTajhizot"></quill-view>
+
+    <quill-view [content]="post.photoTamos"></quill-view>
+    <quill-view [content]="post.textTamos"></quill-view>
+
+    <quill-view [content]="post.photoLocation"></quill-view>
+    <quill-view [content]="post.textLocation"></quill-view>
+  </div>
+
+  <div *ngIf="post.category == 'Meros'" class="mt-2 mb-3">
+    <quill-view [content]="post.textFaoliyat"></quill-view>
+    <quill-view [content]="post.photoAsarho"></quill-view>
+    <quill-view [content]="post.textAsarho"></quill-view>
+  </div>
+
+  <div *ngIf="post.category == 'Jashnho' || post.category == 'Hurokho'" class="mt-2 mb-3">
+    <quill-view [content]="post.textMalumot"></quill-view>
+    <quill-view [content]="post.photoTarikh"></quill-view>
+    <quill-view [content]="post.textTarikh"></quill-view>
+  </div>
+
+
+
+  <div *ngIf="post.category == 'Libosho'" class="mt-2 mb-3">
+    <quill-view [content]="post.textMalumot"></quill-view>
+    <quill-view [content]="post.photoTarikh"></quill-view>
+    <quill-view [content]="post.textTarikh"></quill-view>
+    <quill-view [content]="post.photoTamos"></quill-view>
+    <quill-view [content]="post.textTamos"></quill-view>
+  </div>
+
+
+
+
+  <div *ngIf="post.category == 'Asbobho'" class="mt-2 mb-3">
+    <quill-view [content]="post.textMalumot"></quill-view>
+
+    <quill-view [content]="post.photoTarikh"></quill-view>
+    <quill-view [content]="post.textTarikh"></quill-view>
+
+    <quill-view [content]="post.photoTamos"></quill-view>
+    <quill-view [content]="post.textTamos"></quill-view>
+
+    <quill-view [content]="post.photoLocation"></quill-view>
+    <quill-view [content]="post.textLocation"></quill-view>
+
+  </div>
+
+
+</div>

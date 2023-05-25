@@ -1,0 +1,40 @@
+<div *ngIf="post$ | async as post" class="container">
+  <body class="container">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 text-center font-weight-normal">Ивазкунии нашр</h1>
+
+
+    <label style="color: red">Сарлавҳаи аввала:</label>
+    <input [(ngModel)]="post.title" type="text" name="postTitle" class="form-control mb-3" placeholder="Сарлавҳаи аввала">
+    <label style="color: forestgreen">Сарлавҳаи нави тағйиршуда:</label>
+    <input [(ngModel)]="title" type="text" name="title" class="form-control mb-3" placeholder="Сарлавҳаи нав">
+
+
+
+    <label style="color: red">Расми асосии аввала:</label>
+    <quill-editor [(ngModel)]="post.photoMalumot" name="postPhotoMalumot"></quill-editor>
+    <label style="color: forestgreen">Расми асосии нав:</label>
+    <quill-editor [(ngModel)]="photoMalumot" name="photoMalumot" placeholder="Расми асосии нав"></quill-editor>
+
+
+    <label style="color: red" class="mt-3">Маълумот оиди фаъолияти шоир (кӯҳна):</label>
+    <quill-editor [(ngModel)]="post.textFaoliyat"  name="postTextFaoliyat" placeholder="Маълумот оиди фаъолияти шоир (кӯҳна):"></quill-editor>
+    <label style="color: forestgreen" class="mt-3">Маълумот оиди фаъолияти шоир (нав):</label>
+    <quill-editor [(ngModel)]="textFaoliyat"  name="textFaoliyat" placeholder="Маълумот оиди фаъолияти шоир (нав):"></quill-editor>
+
+
+    <label style="color: red" class="mt-3">Расм оиди асарҳо (кӯҳна):</label>
+    <quill-editor [(ngModel)]="post.photoAsarho"  name="postPhotoAsarho" placeholder="Маълумот оиди фаъолияти шоир (кӯҳна):"></quill-editor>
+    <label style="color: forestgreen" class="mt-3">Расм оиди асарҳо (нав):</label>
+    <quill-editor [(ngModel)]="photoAsarho"  name="photoAsarho" placeholder="Маълумот оиди фаъолияти шоир (нав):"></quill-editor>
+
+
+    <label style="color: red" class="mt-3">Маълумот оиди асарҳои шоир (кӯҳна):</label>
+    <quill-editor [(ngModel)]="post.textAsarho"  name="postTextAsarho" placeholder="Маълумот оиди фаъолияти шоир (кӯҳна):"></quill-editor>
+    <label style="color: forestgreen" class="mt-3">Маълумот оиди асарҳои шоир (нав):</label>
+    <quill-editor [(ngModel)]="textAsarho"  name="textAsarho" placeholder="Маълумот оиди фаъолияти шоир (нав):"></quill-editor>
+
+    <button class="btn btn-lg btn-primary btn-block mb-5" (click)="updatePost(post._id)">Тағйир додан</button>
+  </form>
+  </body>
+</div>

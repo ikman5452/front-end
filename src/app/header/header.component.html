@@ -1,0 +1,32 @@
+<header class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom mt-2 mb-2">
+  <a [routerLink]="['/']" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+    <title>Merosi Farhang</title>
+    <div class="container">
+      <span class="fs-4">Merosi Farhang</span>
+    </div>
+
+  </a>
+
+  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+    <a class="me-3 py-2 link-body-emphasis text-decoration-none" [routerLink]="['/']">Асосӣ</a>
+    <a *ngIf="authService.isAuthenticated()" class="me-3 py-2 link-body-emphasis text-decoration-none" [routerLink]="['/userPosts']">Нашрҳои ман</a>
+<!--    <a *ngIf="authService.isAuthenticated()" class="me-3 py-2 link-body-emphasis text-decoration-none" [routerLink]="['/cabinet']">Ҳуҷраи шахсӣ</a>-->
+    <a *ngIf="authService.isAuthenticated()" class="dropdown btn btn-outline-primary me-2">
+<!--      <a class="dropbtn">Выпадающее</a>-->
+      <div class="dropdown-content">
+        <a [routerLink]="['meros']">Мероси адабӣ</a>
+        <a [routerLink]="['jashn']">Ҷашну маросимҳо</a>
+        <a [routerLink]="['hunarho']">Ҳунарҳои миллӣ</a>
+        <a [routerLink]="['libosho']">Либосҳои миллӣ</a>
+        <a [routerLink]="['asbobho']">Асбобҳои мусиқӣ</a>
+        <a [routerLink]="['hurokho']">Таомҳои суннатӣ</a>
+      </div>
+      Иловаи нашр
+    </a>
+  </nav>
+
+  <a *ngIf="!authService.isAuthenticated()" class="btn btn-outline-primary me-2" [routerLink]="['/auth']">Дохилшавӣ</a>
+  <a *ngIf="!authService.isAuthenticated()" class="btn btn-outline-primary me-2" [routerLink]="['/reg']">Бақайдгирӣ</a>
+  <a *ngIf="authService.isAuthenticated()" class="btn btn-outline-warning me-2" (click)="logout()">Баромад</a>
+
+</header>

@@ -1,0 +1,36 @@
+<div class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex justify-content-between">
+    <a class="p-2 link-secondary" [routerLink]="['../']">Асоси</a>
+    <a class="p-2 link-secondary" [routerLink]="['../hayotufaoliyat']">Ҳаёт ва фаъолият</a>
+    <a class="p-2 link-secondary" [routerLink]="['../merosiadabi']">Мероси адабӣ</a>
+
+  </nav>
+</div>
+
+<div *ngIf="post$ | async as post" class="container">
+  <div class="m-0 d-flex justify-content-between align-items-center">
+    <h1>
+      Мероси адабӣ
+    </h1>
+
+  </div>
+  <div class="m-0 d-flex justify-content-between align-items-center">
+    <strong *ngIf="post.category == 'Hunarho'" class="mb-2 text-primary">Ҳунарҳои миллӣ</strong>
+    <strong *ngIf="post.category == 'Jashnho'" class="mb-2 text-primary">Ҷашну маросимҳо</strong>
+    <strong *ngIf="post.category == 'Libosho'" class="mb-2 text-primary">Либосҳои миллӣ</strong>
+    <strong *ngIf="post.category == 'Asbobho'" class="mb-2 text-primary">Асбобҳои мусиқӣ</strong>
+    <strong *ngIf="post.category == 'Hurokho'" class="mb-2 text-primary">Хӯрокҳои суннатӣ</strong>
+    <strong *ngIf="post.category == 'Meros'" class="mb-2 text-primary">Мероси адабӣ</strong>
+
+    <small class="text-muted">Муаллиф: @{{ post.author}}, Сана: {{ post.date | date: "d MMMM y, HH:mm" }}</small>
+  </div>
+
+
+  <quill-view [content]="post.photoAsarho"></quill-view>
+
+
+  <div class="mt-2 mb-3">
+    <quill-view [content]="post.textAsarho"></quill-view>
+  </div>
+
+</div>
