@@ -1,0 +1,32 @@
+<div class="row d-flex">
+  <div class="figure position-relative">
+    <img class="photo img-fluid" src="https://pibig.info/uploads/posts/2021-06/1623548137_46-pibig_info-p-samaya-krasivaya-priroda-v-mire-priroda-kr-47.jpg" alt="">
+<!--    https://www.la-palafitta.com/website-images/test/image-thumb__33__header-large/lapalafitta-03.jpeg-->
+    <div class="figure-caption position-absolute h-100 w-100">
+      <div class="col-md-6 p-5">
+        <h1 class="display-4 font-italic text-white">Ҳуҷраи шахсӣ!</h1>
+        <p class="lead my-3 text-white">Дар ин ҷо метавонед маълумот оиди нашрҳои Шумо нигоҳ дошта мешавад.</p>
+      </div>
+    </div>
+  </div>
+<div *ngFor="let post of posts" class="col-md-4" [routerLink]="['../post', post._id]">
+  <div class="p-0 mb-4 box-shadow">
+    <quill-view [content]="post.photoMalumot"></quill-view>
+    <div class="card-body mb-3">
+      <div class="m-0 p-0 d-flex justify-content-between align-items-center">
+        <strong *ngIf="post.category == 'Hunarho'" class="mb-2 text-primary">Ҳунарҳои миллӣ</strong>
+        <strong *ngIf="post.category == 'Jashnho'" class="mb-2 text-primary">Ҷашну маросимҳо</strong>
+        <strong *ngIf="post.category == 'Libosho'" class="mb-2 text-primary">Либосҳои миллӣ</strong>
+        <strong *ngIf="post.category == 'Asbobho'" class="mb-2 text-primary">Асбобҳои мусиқӣ</strong>
+        <strong *ngIf="post.category == 'Hurokho'" class="mb-2 text-primary">Хӯрокҳои суннатӣ</strong>
+        <strong *ngIf="post.category == 'Meros'" class="mb-2 text-primary">Мероси адабӣ</strong>
+        <small class="text-muted">{{post.date | date: "d MMMM y, HH:mm"}}</small>
+      </div>
+      <h4 class="mb-3">
+        <a class="text-dark" [routerLink]="['../post', post._id]">{{post.title}}</a>
+      </h4>
+      <p>Муфассалтар...</p>
+    </div>
+  </div>
+</div>
+</div>

@@ -13,6 +13,7 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,6 +33,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -100,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "ee7b3ad0-000f-4057-beca-b111f6fb2582"
   }
 }
