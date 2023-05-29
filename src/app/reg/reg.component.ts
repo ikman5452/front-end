@@ -3,6 +3,7 @@ import {FlashMessagesService} from "flash-messages-angular";
 import {AuthService} from "../auth.service";
 import {Router} from "@angular/router";
 
+const createdDate = new Date();
 @Component({
   selector: 'app-reg',
   templateUrl: './reg.component.html',
@@ -52,6 +53,7 @@ export class RegComponent implements OnInit{
         login: this.login,
         email: this.email,
         password: this.password,
+        createdDate: createdDate,
       }).subscribe( (data: { success: any; msg: string | undefined; }) => {
           if (!data.success) {
         this._flashMessagesService.show(data.msg,
